@@ -28,7 +28,7 @@ namespace Bud_Gloria_Lab2.Pages.Books
                 return NotFound();
             }
 
-            var book = await _context.Book.FirstOrDefaultAsync(m => m.ID == id);
+            var book = await _context.Books.FirstOrDefaultAsync(m => m.ID == id);
             if (book == null)
             {
                 return NotFound();

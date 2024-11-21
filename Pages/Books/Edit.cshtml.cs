@@ -30,7 +30,7 @@ namespace Bud_Gloria_Lab2.Pages.Books
                 return NotFound();
             }
 
-            var book =  await _context.Book.FirstOrDefaultAsync(m => m.ID == id);
+            var book =  await _context.Books.FirstOrDefaultAsync(m => m.ID == id);
             if (book == null)
             {
                 return NotFound();
@@ -73,7 +73,7 @@ namespace Bud_Gloria_Lab2.Pages.Books
 
         private bool BookExists(int id)
         {
-            return _context.Book.Any(e => e.ID == id);
+            return _context.Books.Any(e => e.ID == id);
         }
     }
 }

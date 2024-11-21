@@ -23,7 +23,7 @@ namespace Bud_Gloria_Lab2.Pages.Books
 
         public async Task OnGetAsync()
         {
-            Book = await _context.Book
+            Book = await _context.Books
                   .Include(b => b.Publisher)
                 .ToListAsync();
         }
