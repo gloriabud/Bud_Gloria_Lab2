@@ -19,13 +19,36 @@ namespace Bud_Gloria_Lab2.Pages.Books
             _context = context;
         }
 
-        public IList<Book> Book { get;set; } = default!;
+        public IList<Book> Book { get; set; } = default!;
 
-        public async Task OnGetAsync()
+        public BookData BookD { get; set; }
+        public int BookID { get; set; }
+        public int CategoryID { get; set; }
+
+
+        public async Task OnGetAsync(int? id, int? categoryID)
         {
-            Book = await _context.Books
+            BookD = new BookData();
+
+            //se va include Author  conform cu sarcina de la lab 2 
+
+            BookD.Books = await _context.Books
+                .Include(b => b.Author)
                   .Include(b => b.Publisher)
-                .ToListAsync();
+                  .Include(b => b.BookCategories)
+                  .ThenInclude(b => b.Category)
+                  .AsNoTracking()
+                  .OrderBy(b => b.Title)
+                  .ToListAsync();
+
+            if (id != null)
+            {
+                BookID = id.Value;
+                Book book = BookD.Books
+                    .Where(i => i.ID == id.Value).Single();
+                BookD.Categories = book.BookCategories.Select(s => s.Category);
+            }
+
         }
     }
 }

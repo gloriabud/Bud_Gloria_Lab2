@@ -17,5 +17,6 @@ namespace Bud_Gloria_Lab2.Data
 
         // Corectat pentru a reflecta denumirea corectă a clasei Author
         public DbSet<Author> Authors { get; set; } = default!;
+        public DbSet<Bud_Gloria_Lab2.Models.Category> Category { get; set; } = default!;
     }
 }

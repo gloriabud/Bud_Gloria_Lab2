@@ -4,6 +4,7 @@ using Bud_Gloria_Lab2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bud_Gloria_Lab2.Migrations
 {
     [DbContext(typeof(Bud_Gloria_Lab2Context))]
-    partial class Bud_Gloria_Lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20241121172800_BookCategory")]
+    partial class BookCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
