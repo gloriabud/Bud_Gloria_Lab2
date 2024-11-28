@@ -9,7 +9,13 @@ namespace Bud_Gloria_Lab2.Models
         public string LastName { get; set; } // Nume
 
         [Display(Name = "Full Name")]
-        public string FullName => FirstName + " " + LastName;
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
 
         // Relație cu Book
         public ICollection<Book>? Books { get; set; } // Navigation property
