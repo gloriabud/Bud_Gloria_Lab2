@@ -1,13 +1,11 @@
-﻿namespace Bud_Gloria_Lab2.Models.ViewModels
+﻿using Bud_Gloria_Lab2.Models;
+
+namespace Bud_Gloria_Lab2.ViewModels
 {
-    namespace Bud_Gloria_Lab2.ViewModels
+    public class PublisherIndexData
     {
-        public class PublisherIndexData
-        {
-
-            public IEnumerable<Publisher> Publishers { get; set; }
-            public IEnumerable<Book> Books { get; set; }
-
-        }
+        public IEnumerable<Publisher> Publishers { get; set; } = new List<Publisher>();
+        public IEnumerable<Book> Books { get; set; } = new List<Book>();
     }
 }
+
