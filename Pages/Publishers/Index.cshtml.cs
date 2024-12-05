@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Bud_Gloria_Lab2.ViewModels;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Bud_Gloria_Lab2.Data;
-using Bud_Gloria_Lab2.Models.ViewModels.Bud_Gloria_Lab2.ViewModels;
 
 namespace Bud_Gloria_Lab2.Pages.Publishers
 {
