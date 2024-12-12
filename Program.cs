@@ -6,7 +6,11 @@ using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options =>
+{
+    options.Conventions.AuthorizeFolder("/Books");
+    options.Conventions.AllowAnonymousToPage("/Books/Index");
+    options.Conventions.AllowAnonymousToPage("/Books/Details");});
 builder.Services.AddDbContext<Bud_Gloria_Lab2Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Bud_Gloria_Lab2Context")
     ?? throw new InvalidOperationException("Connection string 'Bud_Gloria_Lab2Context' not found.")));
@@ -17,7 +21,9 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("Bud_Gloria_Lab2C
 
 
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<LibraryIdentityContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<LibraryIdentityContext>();
 
 var app = builder.Build();
 
